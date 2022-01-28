@@ -1,6 +1,7 @@
 from src.utils.all_utils import read_yaml, create_dirrectory
 import argparse
 import pandas as pd 
+import os
 
 def get_data(config_path):
     config=read_yaml(config_path)
@@ -10,8 +11,14 @@ def get_data(config_path):
 
     ## save dataset in local directory
     # create path to directory: artifacts/raw_local_dir/data.csv
+    artifacts_dir=config['artifacts']['artifacts_dir']
+    raw_local_dir=config['artifacts']['raw_local_dir']
+    raw_local_file=config['artifacts']['raw_local_file']
+    raw_local_dir_path=os.path.join(artifacts_dir,raw_local_dir)
+    raw_local_file_path=os.path.join(raw_local_dir_path, raw_local_file)
+    print(raw_local_file_path)
 
-    print(df.head())
+    #print(df.head())
 
 
 if __name__=='__main__':
