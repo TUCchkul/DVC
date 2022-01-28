@@ -10,5 +10,5 @@ def read_yaml(path_to_yaml:str)-> dict:
 
 def create_dirrectory(dirs:list):
     for dir_path in dirs:
-        os.mkdirs(dir_path, exist_ok=True)
+        os.makedirs(dir_path, exist_ok=True)
         print(f"directory is created at{dir_path}")
