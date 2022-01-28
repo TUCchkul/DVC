@@ -19,7 +19,7 @@ def save_local_df(data,data_path, index_status=False):
     print("f data is save at {data_path}")
 
 
-def save_reports(report:dict, report_path:str):
+def save_reports(report:dict, report_path:str, indentation=4):
     with open(report_path, 'w') as f:
-        json.dump(report, f, indent=4)
+        json.dump(report, f, indent=indentation)
     print(f"reports save at {report_path}")
