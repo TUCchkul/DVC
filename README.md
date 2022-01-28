@@ -60,3 +60,41 @@ artifacts:
   raw_local_file: data.csv
 
 ```
+### step 08: create the stage 01 python file and all utils file:
+```bash
+touch src/stage_01_load_save.py src/utils/all_utils.py
+```
+### step 09: create the dvc.yaml file and add the stage 01:
+```bash
+touch.dvc.yaml
+```
+content of dvc.yaml file -
+```yaml
+stages:
+  load_data:
+    cmd: python src/stage_01_load_save.py --config=config/config.yaml
+    deps:
+      - src/stage_01_load_save.py
+      - src/utils/all_utils.py
+      - config/config.yaml
+    outs:
+      - artifacts/raw_local_dir/data.csv
+```
+### Step 10: Run the dvc repro command with
+```bash
+dvc repro 
+```
+### step 11: push the changes to remote repository
+```bash
+git init
+git add .
+git commit -m "stage_01_added"
+git brancg -M main
+git remote add origin https://github.com/TUCchkul/DVC.git
+git push origin main 
+```
+```bash
+touch .gitignore
+```
+
+
